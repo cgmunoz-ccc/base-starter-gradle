@@ -95,3 +95,4 @@ There are a couple of downsides:
   Instead, you have to focus the console and press any key - that will kill Gretty cleanly.
 * If Gretty says "App already running", there is something running on port 8080.
   See above on how to kill Gretty cleanly.
+# base-starter-gradle
