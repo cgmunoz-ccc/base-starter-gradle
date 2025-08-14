@@ -73,8 +73,4 @@ public class DataBinding {
         Person emptyPerson = new Person();
         this.binder.readBean(emptyPerson);
     }
-
-    public void reset(Runnable afterSaveAction){
-        //todo
-    }
 }

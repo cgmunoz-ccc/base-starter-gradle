@@ -75,12 +75,7 @@ public class MainFormLayout extends FormLayout {
         removeButton.addThemeVariants(ButtonVariant.LUMO_ERROR);
         removeButton.addClickShortcut(Key.ENTER);
 
-        Button resetButton = new Button("Reset",
-            event -> dataBinding.reset(afterSaveAction));
-        resetButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
-        resetButton.addClickShortcut(Key.ENTER);
-
-        horizontalLayout.add(saveButton, removeButton, resetButton);
+        horizontalLayout.add(saveButton, removeButton);
 
         form.add(horizontalLayout);
     }
