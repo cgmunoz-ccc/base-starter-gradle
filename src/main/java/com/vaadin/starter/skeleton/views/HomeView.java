@@ -16,14 +16,11 @@ public class HomeView extends VerticalLayout {
 
     public HomeView() {
 
-        //EL BINDER SE PUEDE CONSIDERAR COMO EL FORMULARIO
-        //EL SERVICE SE PUEDE CONSIDERAR COMO EL BACKEND
+        PersonService personService = new PersonService();
+        DataBinding dataBinding = new DataBinding(personService);
 
-        PersonService personService = new PersonService();  //crea una lista de personas
-        DataBinding dataBinding = new DataBinding(personService);  //crea el binder principal y tiene la lista de personas anterior
-
-        MainGrid mainGrid = new MainGrid(dataBinding);  //crea el Grid, con la lista y el binder (AQUÍ SOLO EL BINDER?)
-        MainFormLayout mainForm = new MainFormLayout(dataBinding, () -> mainGrid.getGrid().getGenericDataView().refreshAll()); //crea el FormLayout, haciendo el binding con el Binder anterior
+        MainGrid mainGrid = new MainGrid(dataBinding);
+        MainFormLayout mainForm = new MainFormLayout(dataBinding, () -> mainGrid.getGrid().getGenericDataView().refreshAll());
 
         add(mainForm.getForm(), mainGrid.getGrid());
     }

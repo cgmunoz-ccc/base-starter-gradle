@@ -43,7 +43,6 @@ public class DataBinding {
     }
 
     private void saveNewPerson(){
-        //MAL
         try {
             person = new Person();
             this.binder.writeBean(person);
@@ -54,14 +53,9 @@ public class DataBinding {
         }
     }
 
-    //Antes: función load, en la que:
-    //      1.  this.binder.readBean(person)  -> binder(formulario) = person
-    //      2.  this.person = person          -> Se envían los datos a la propiedad de la clase (¿para que si luego se modifica?)
     private void saveEditPerson(Integer index){
-        //BIEN
-        //3. ENTRA CUANDO SE PULSA EL BOTÓN DE SAVE
         try {
-            this.binder.writeBean(person); // 4. person = binder(formulario) -->
+            this.binder.writeBean(person);
             personService.updatePerson(person, index);
             MainGrid.refreshGrid(personService.getPersonList());
         } catch (ValidationException e) {
