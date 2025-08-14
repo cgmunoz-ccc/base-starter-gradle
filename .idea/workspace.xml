@@ -5,23 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c4f1465-e763-480d-aeaf-ba7811334a69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/AppNavigation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/components/MainFormLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/components/MainGrid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/models/Hobby.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/models/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/repositories/PersonRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/services/DataBinding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/services/HobbyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/services/PersonService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/views/ChartView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/views/HomeView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/GreetService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/MainView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/simplelogger.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/simplelogger.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/components/MainFormLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/components/MainFormLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/services/DataBinding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/services/DataBinding.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +83,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;v24&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/cgmunoz/Documents/repos/base-starter-gradle&quot;,
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,

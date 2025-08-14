@@ -64,7 +64,9 @@ public class MainFormLayout extends FormLayout {
         HorizontalLayout horizontalLayout = new HorizontalLayout();
 
         Button saveButton = new Button("Save",
-            event -> dataBinding.saveNewOrEdit(afterSaveAction));
+            event -> {
+            dataBinding.saveNewOrEdit(afterSaveAction);
+            });
         saveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         saveButton.addClickShortcut(Key.ENTER);
 
