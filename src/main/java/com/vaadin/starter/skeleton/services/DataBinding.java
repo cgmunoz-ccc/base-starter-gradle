@@ -48,6 +48,7 @@ public class DataBinding {
             this.binder.writeBean(person);
             personService.addPerson(person);
             MainGrid.refreshGrid(personService.getPersonList());
+            clearFormFields();
         } catch (ValidationException e) {
             throw new RuntimeException(e);
         }
@@ -66,6 +67,11 @@ public class DataBinding {
     public void delete(Runnable afterSaveAction){
         personService.removePerson(person);
         MainGrid.refreshGrid(personService.getPersonList());
+    }
+
+    public void clearFormFields(){
+        Person emptyPerson = new Person();
+        this.binder.readBean(emptyPerson);
     }
 
     public void reset(Runnable afterSaveAction){

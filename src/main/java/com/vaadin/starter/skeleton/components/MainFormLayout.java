@@ -84,8 +84,4 @@ public class MainFormLayout extends FormLayout {
 
         form.add(horizontalLayout);
     }
-
-    public void clearAllField(){
-        //todo
-    }
 }
