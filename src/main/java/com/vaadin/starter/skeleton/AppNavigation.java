@@ -6,8 +6,6 @@ import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
 import com.vaadin.flow.component.sidenav.SideNavItem;
-import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
 public class AppNavigation extends AppLayout {
@@ -31,8 +29,8 @@ public class AppNavigation extends AppLayout {
 
     private SideNav getSideNav() {
         SideNav sideNav = new SideNav();
-        sideNav.addItem(new SideNavItem("Chart", "/chart"));
         sideNav.addItem(new SideNavItem("Home", ""));
+        sideNav.addItem(new SideNavItem("Calculator", "/calculator"));
         return sideNav;
     }
 
