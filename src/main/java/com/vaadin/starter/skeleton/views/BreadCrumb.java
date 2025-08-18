@@ -23,13 +23,22 @@ public class BreadCrumb extends HorizontalLayout {
 
     private void addBreadcrumbButtons(){
         Button buttonUserDataView = new Button("Your Data");
+        buttonUserDataView.addClickListener(e ->
+                buttonUserDataView.getUI().ifPresent(ui ->
+                    ui.navigate("calculator")));
         buttonUserDataView.addClassName("visibleBtn");
 
         Button buttonCalculatorView = new Button("Calculator");
-        buttonUserDataView.addClassName("visibleBtn");
+        buttonCalculatorView.addClassName("visibleBtn");
+        buttonCalculatorView.addClickListener(e ->
+            buttonCalculatorView.getUI().ifPresent(ui ->
+                ui.navigate("calculator/start")));
 
         Button buttonSummaryView = new Button("Summary");
-        buttonUserDataView.addClassName("visibleBtn");
+        buttonSummaryView.addClickListener(e ->
+            buttonSummaryView.getUI().ifPresent(ui ->
+                ui.navigate("calculator/summary")));
+        buttonSummaryView.addClassName("visibleBtn");
 
         add(buttonUserDataView, buttonCalculatorView, buttonSummaryView);
     }
