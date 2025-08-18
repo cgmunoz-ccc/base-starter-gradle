@@ -3,18 +3,18 @@ package com.vaadin.starter.skeleton.views;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-
-import javax.swing.text.View;
 
 public class BreadCrumb extends HorizontalLayout {
 
-    private List<Button> breadcrumbButtons = new ArrayList<>();
+    List<Button> breadCrumbButtons = new ArrayList<>();
 
     private BreadCrumb() {
         addBreadcrumbButtons();
+        styleBreadCrumb();
     }
 
     public static BreadCrumb build(){
@@ -29,6 +29,10 @@ public class BreadCrumb extends HorizontalLayout {
         Button buttonSummaryView = createBreadcrumbButton(
             "Summary", "calculator/summary");
 
+        breadCrumbButtons.add(buttonUserDataView);
+        breadCrumbButtons.add(buttonCalculatorView);
+        breadCrumbButtons.add(buttonSummaryView);
+
         add(buttonUserDataView, buttonCalculatorView, buttonSummaryView);
     }
 
@@ -40,5 +44,14 @@ public class BreadCrumb extends HorizontalLayout {
             button.getUI().ifPresent(ui ->
                 ui.navigate(buttonRoute)));
         return button;
+    }
+
+    private void styleBreadCrumb(){
+        this.setWidthFull();
+        this.setDefaultVerticalComponentAlignment(Alignment.CENTER); //Para que se alineen verticalmente en el centro
+        breadCrumbButtons.stream().forEach(button -> {
+            button.addThemeVariants(ButtonVariant.LUMO_CONTRAST);
+            this.setFlexGrow(1, button);
+            });
     }
 }
