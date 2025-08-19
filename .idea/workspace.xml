@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c4f1465-e763-480d-aeaf-ba7811334a69" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/components/BottomNavigation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/components/Breadcrumb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/components/BreadcrumbConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/services/CalculatorState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/themes/my-theme/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/themes/my-theme/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/views/BreadCrumb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/views/BreadCrumb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/views/BreadCrumb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/views/CalculatorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/views/calculatorViews/CalculatorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/views/SummaryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/views/calculatorViews/SummaryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/views/UserDataView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/views/calculatorViews/UserDataView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,23 +80,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build base-starter-gradle.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;breadcrumb&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/cgmunoz/Documents/repos/base-starter-gradle&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.1150748&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build base-starter-gradle.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "breadcrumb",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/cgmunoz/Documents/repos/base-starter-gradle",
+    "onboarding.tips.debug.path": "/Users/cgmunoz/Documents/repos/base-starter-gradle/src/main/java/com/vaadin/starter/skeleton/calculatorViews/src/Main.java",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.1150748"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -112,5 +119,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/vaadin/starter/skeleton/calculatorViews/src/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
