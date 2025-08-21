@@ -1,6 +1,7 @@
 package com.vaadin.starter.skeleton.views.calculatorViews;
 
 import com.vaadin.flow.component.html.Paragraph;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HasDynamicTitle;
 import com.vaadin.flow.router.Route;
@@ -12,14 +13,13 @@ import com.vaadin.starter.skeleton.components.BreadcrumbConstants;
 public class SummaryView extends VerticalLayout implements HasDynamicTitle {
 
     public SummaryView() {
-        Breadcrumb breadcrumb = Breadcrumb.build();
+        Breadcrumb breadcrumb = new Breadcrumb();
         add(breadcrumb);
 
         Paragraph message = new Paragraph("ESTA ES LA PÁGINA FINAL DE RESUMEN. " +
-            "Aquí se verá un resumen de los datos que se han introducido en las vistas anteriores" + breadcrumb.currentIndex);
+            "Aquí se verá un resumen de los datos que se han introducido en las vistas anteriores"
+            + breadcrumb.currentIndex +  "/npags: " + breadcrumb.visitedPages);
         add(message);
-
-        add(breadcrumb.bottomNavigation());
     }
 
     @Override

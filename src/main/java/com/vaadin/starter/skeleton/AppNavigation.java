@@ -8,8 +8,11 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.starter.skeleton.components.Breadcrumb;
 import com.vaadin.starter.skeleton.views.HomeView;
 import com.vaadin.starter.skeleton.views.calculatorViews.UserDataView;
+
+import java.util.ArrayList;
 
 public class AppNavigation extends AppLayout {
 
@@ -25,16 +28,16 @@ public class AppNavigation extends AppLayout {
 
     private HorizontalLayout getSideNav() {
         HorizontalLayout sideNavButtonsLayout = new HorizontalLayout();
-        Button sideNavButton_0 = new Button("Home", new Icon(VaadinIcon.HOME),
-            e -> {getUI().ifPresent(
-                ui -> ui.navigate(HomeView.class));
+        Button sideNavButton_0 = new Button("Home", new Icon(VaadinIcon.HOME), e -> {
+            getUI().ifPresent(ui -> ui.navigate(HomeView.class));
         });
         sideNavButton_0.addThemeVariants(ButtonVariant.LUMO_TERTIARY,
             ButtonVariant.LUMO_CONTRAST);
 
-        Button sideNavButton_1 = new Button("Calculator", new Icon(VaadinIcon.CALC),
-            e -> {getUI().ifPresent(
-                ui -> ui.navigate(UserDataView.class));
+        Button sideNavButton_1 = new Button("Calculator", new Icon(VaadinIcon.CALC), e -> {
+            Breadcrumb.currentIndex = 0;
+            Breadcrumb.visitedPages = new ArrayList<>();
+            getUI().ifPresent(ui -> ui.navigate(UserDataView.class));
         });
         sideNavButton_1.addThemeVariants(ButtonVariant.LUMO_TERTIARY,
             ButtonVariant.LUMO_CONTRAST);

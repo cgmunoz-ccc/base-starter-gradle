@@ -7,31 +7,30 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
-public class Breadcrumb extends HorizontalLayout {
+public class Breadcrumb extends VerticalLayout {
 
-    private static List<Button> breadcrumbButtons = new ArrayList<>();
+    private List<Button> breadcrumbButtons = new ArrayList<>();
 
-    private List<Integer> visitedPages;
-    public Integer currentIndex;
+    public static List<Integer> visitedPages;
+    public static Integer currentIndex;
 
     private static Button previusButton;
     private static Button nextButton;
 
-    public static Breadcrumb build(){
-        return new Breadcrumb();
+
+    public Breadcrumb() {
+        HorizontalLayout breadcrumbLayout = createBreadcrumbButtons();
+        HorizontalLayout bottomLayout = createBottomNavigation();
+        add(breadcrumbLayout, bottomLayout);
+        styleBreadcrumb(breadcrumbLayout, bottomLayout);
     }
 
-    private Breadcrumb() {
-        addBreadcrumbButtons();
-        styleBreadcrumb();
-    }
-
-    private void addBreadcrumbButtons(){
-        currentIndex = 0;
-        visitedPages = new ArrayList<>();
-
+    private HorizontalLayout createBreadcrumbButtons(){
+        HorizontalLayout layout = new HorizontalLayout();
         for(int i = 0; i< BreadcrumbConstants.PAGE_TITLES.size(); i++){
             String buttonLabel = BreadcrumbConstants.PAGE_TITLES.get(i);
             String buttonRoute = BreadcrumbConstants.PAGE_ROUTES.get(i);
@@ -40,16 +39,16 @@ public class Breadcrumb extends HorizontalLayout {
             button.addClickListener(e -> {
                 visitedPages.add(currentIndex);
                 currentIndex = BreadcrumbConstants.PAGE_TITLES.indexOf(buttonLabel);
-                setStateOfButtoms();
                 button.getUI().ifPresent(ui -> ui.navigate(buttonRoute));
             });
 
             breadcrumbButtons.add(button);
-            add(button);
+            layout.add(button);
         }
+        return layout;
     }
 
-    public HorizontalLayout bottomNavigation() {
+    public HorizontalLayout createBottomNavigation() {
         HorizontalLayout layout = new HorizontalLayout();
         createNextButton();
         createPreviusButton();
@@ -64,8 +63,8 @@ public class Breadcrumb extends HorizontalLayout {
         button.addThemeVariants(ButtonVariant.LUMO_CONTRAST);
         button.addClickListener(
             e -> {
+                visitedPages.add(currentIndex);
                 currentIndex--;
-                setStateOfButtoms();
                 button.getUI().ifPresent(ui -> ui.navigate(
                     BreadcrumbConstants.PAGE_ROUTES.get(currentIndex)
                 ));
@@ -82,7 +81,6 @@ public class Breadcrumb extends HorizontalLayout {
         button.addClickListener(e -> {
             visitedPages.add(currentIndex);
             currentIndex++;
-            setStateOfButtoms();
             button.getUI().ifPresent(ui -> ui.navigate(
                 BreadcrumbConstants.PAGE_ROUTES.get(currentIndex)
             ));
@@ -90,43 +88,48 @@ public class Breadcrumb extends HorizontalLayout {
         this.nextButton = button;
     }
 
-    private void styleBreadcrumb(){
-        this.setWidthFull();
-        this.setDefaultVerticalComponentAlignment(Alignment.CENTER); //Para que se alineen verticalmente en el centro
-        setStateOfButtoms();
+    private void styleBreadcrumb(HorizontalLayout breadcrumbLayout, HorizontalLayout bottomLayout){
+        breadcrumbLayout.setWidthFull();
+        breadcrumbLayout.setDefaultVerticalComponentAlignment(Alignment.CENTER); //Para que se alineen verticalmente en el centro
+        setStateOfButtoms(breadcrumbLayout, bottomLayout);
     }
 
-    private void setStateOfButtoms(){
+    private void setStateOfButtoms(HorizontalLayout breadcrumbLayout, HorizontalLayout bottomLayout){
         setBreadcrumbButtonsVisibility();
-        setBreadcrumbButtonsStyle();
-        //handleBottomLayoutButtons();
+        setBreadcrumbButtonsStyle(breadcrumbLayout);
+        handleBottomLayout(bottomLayout);
     }
 
     private void setBreadcrumbButtonsVisibility(){
-        for(Button button:breadcrumbButtons){
-            Integer buttonIndex = breadcrumbButtons.indexOf(button);
-            breadcrumbButtons.get(buttonIndex).removeClassNames("visibleBtn", "hiddenBtn");
-            if(buttonIndex < currentIndex)
-                breadcrumbButtons.get(buttonIndex).addClassName("hiddenBtn");
+        for(int i=0; i<BreadcrumbConstants.NUMBER_OF_PAGES; i++){
+            breadcrumbButtons.get(i).removeClassNames("visibleBtn", "hiddenBtn");
+            if(i<=currentIndex || visitedPages.contains(i))
+                breadcrumbButtons.get(i).addClassName("visibleBtn");
             else
-                breadcrumbButtons.get(buttonIndex).addClassName("visibleBtn");
+                breadcrumbButtons.get(i).addClassName("hiddenBtn");
         }
     }
 
-    private void setBreadcrumbButtonsStyle(){
-        for(Button button:breadcrumbButtons){
-            this.setFlexGrow(1, button);
-            if (breadcrumbButtons.indexOf(button) != currentIndex) {
-                button.addThemeVariants(ButtonVariant.LUMO_CONTRAST);
+    private void setBreadcrumbButtonsStyle(HorizontalLayout breadcrumbLayout){
+        for(int i=0; i<BreadcrumbConstants.NUMBER_OF_PAGES; i++){
+            breadcrumbLayout.setFlexGrow(1, breadcrumbButtons.get(i));
+            if (i!=currentIndex) {
+                breadcrumbButtons.get(i).addThemeVariants(ButtonVariant.LUMO_CONTRAST);
+            } else {
+                breadcrumbButtons.get(i).addThemeVariants(ButtonVariant.LUMO_PRIMARY,
+                    ButtonVariant.LUMO_CONTRAST);
             }
         }
     }
 
-    public void handleBottomLayoutButtons(){
+    public void handleBottomLayout(HorizontalLayout bottomLayout){
+        bottomLayout.setWidthFull();
+        bottomLayout.setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
+
         if(currentIndex == 0)
             previusButton.setEnabled(false);
 
-        if(currentIndex == BreadcrumbConstants.NUMBER_OF_PAGES)
+        if(currentIndex == BreadcrumbConstants.NUMBER_OF_PAGES-1)
             nextButton.setEnabled(false);
     }
 }
