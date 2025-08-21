@@ -7,64 +7,63 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.starter.skeleton.services.CalculatorState;
 
+import java.util.List;
+
 public class BottomNavigation extends HorizontalLayout {
 
     private static Button previusBottom;
     private static Button nextButtom;
 
-    private CalculatorState state;
+    private List<Integer> visitedPages;
+    private Integer currentIndex;
 
-    public static BottomNavigation build(CalculatorState state){
-        return new BottomNavigation(state);
+    public static BottomNavigation build() {
+        return new BottomNavigation();
     }
 
-    private BottomNavigation(CalculatorState state) {
-        this.state = state;
-
+    private BottomNavigation() {
         previusBottom = createPreviusButton();
         nextButtom = createNextButton();
         add(previusBottom, nextButtom);
     }
 
-    private Button createPreviusButton(){
+    private Button createPreviusButton() {
         Button previusButton = new Button("previus",
             new Icon(VaadinIcon.ARROW_LEFT));
         previusButton.addThemeVariants(ButtonVariant.LUMO_CONTRAST);
         previusButton.addClickListener(
             e -> {
-                currentPageIndex --;
+                currentIndex--;
                 previusButton.getUI().ifPresent(ui -> ui.navigate(
-                    BreadcrumbConstants.PAGE_ROUTES.get(currentPageIndex)
+                    BreadcrumbConstants.PAGE_ROUTES.get(currentIndex)
                 ));
-                updateBreadcrumbButtons();
+                handleBottomLayoutButtons();
             }
         );
-        previusAndNextButtons.add(previusButton);
         return previusButton;
     }
 
-    private Button createNextButton(){
+    private Button createNextButton() {
         Button nextButton = new Button("next",
             new Icon(VaadinIcon.ARROW_RIGHT));
         nextButton.setIconAfterText(true);
         nextButton.addThemeVariants(ButtonVariant.LUMO_CONTRAST);
         nextButton.addClickListener(e -> {
-            pagesCompleteIndex.add(currentPageIndex);
-            currentPageIndex ++;
+            visitedPages.add(currentIndex);
+            currentIndex++;
             nextButton.getUI().ifPresent(ui -> ui.navigate(
-                BreadcrumbConstants.PAGE_ROUTES.get(currentPageIndex)
+                BreadcrumbConstants.PAGE_ROUTES.get(currentIndex)
             ));
-            updateBreadcrumbButtons();
+            handleBottomLayoutButtons();
         });
-        previusAndNextButtons.add(nextButton);
         return nextButton;
     }
 
-    private void handleBottomLayoutButtons(){
-//        if(currentPageIndex == 0)
-//            previusAndNextButtons.get(0).setEnabled(false);
-//
-//        if(currentPageIndex == breadcrumbButtons.size()-1)
-//            previusAndNextButtons.get(1).setEnabled(false);
+    public void handleBottomLayoutButtons(){
+        if(currentIndex == 0)
+            previusBottom.setEnabled(false);
+
+        if(currentIndex == BreadcrumbConstants.NUMBER_OF_PAGES)
+            nextButtom.setEnabled(false);
     }
 }

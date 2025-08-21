@@ -4,6 +4,8 @@ import java.util.List;
 
 public class BreadcrumbConstants {
 
+    public static final Integer NUMBER_OF_PAGES = 3;
+
     /*
     Pages ordered according to their position in the breadcrumb
      */

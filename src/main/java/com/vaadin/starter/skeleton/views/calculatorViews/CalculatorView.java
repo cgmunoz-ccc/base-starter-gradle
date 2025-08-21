@@ -16,10 +16,10 @@ public class CalculatorView extends VerticalLayout implements HasDynamicTitle {
         add(breadcrumb);
 
         Paragraph message = new Paragraph("ESTE ES EL SEGUNDO FORMULARIO. " +
-            "Aquí se harán preguntas y se dará el valor calculado final");
+            "Aquí se harán preguntas y se dará el valor calculado final" + breadcrumb.currentIndex);
         add(message);
 
-        add(breadcrumb.createBottomLayout());
+        add(breadcrumb.bottomNavigation());
     }
 
     @Override

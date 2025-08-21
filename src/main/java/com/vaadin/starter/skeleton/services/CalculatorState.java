@@ -1,34 +1,43 @@
 package com.vaadin.starter.skeleton.services;
 
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.starter.skeleton.components.BreadcrumbConstants;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class CalculatorState {
-    private List<Integer> completePages;
-    private Integer currentPageIndex;
+    private List<Integer> visitedPages;
+    private Integer currentIndex;
 
     public CalculatorState() {
-        completePages = new ArrayList<>();
-        currentPageIndex = 0;
+        visitedPages = new ArrayList<>();
+        currentIndex = 0;
     }
 
-    public Integer getCurrentPageIndex() {
-        return currentPageIndex;
+    public Integer getCurrentIndex() {
+        return currentIndex;
     }
 
-    public void setCurrentPageIndex(Integer currentPageIndex) {
-        this.currentPageIndex = currentPageIndex;
+    public void setCurrentIndex(Integer currentIndex) {
+        this.currentIndex = currentIndex;
+    }
+
+    public void plusOneCurrentIndex() {
+        this.currentIndex ++;
+    }
+
+    public void minusOneCurrentIndex() {
+        this.currentIndex --;
     }
 
     public Integer getCompletePagesIndex(Integer index){
-        return completePages.get(index);
+        return visitedPages.get(index);
     }
 
-    public void addComplePage(Integer page){
-        completePages.add(page);
-    }
-
-    public void updateState(){
-
+    public void addCurrentIndex(){
+        visitedPages.add(currentIndex);
     }
 }
+
+

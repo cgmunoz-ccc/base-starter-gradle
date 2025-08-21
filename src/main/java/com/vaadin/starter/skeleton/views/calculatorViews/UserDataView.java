@@ -16,11 +16,11 @@ public class UserDataView extends VerticalLayout implements HasDynamicTitle {
         Breadcrumb breadcrumb = Breadcrumb.build();
         add(breadcrumb);
 
-        Paragraph message = new Paragraph("Para poder usar la calculadora, introduce aquí tus datos.");
+        Paragraph message = new Paragraph("Para poder usar la calculadora, introduce aquí tus datos."
+         + breadcrumb.currentIndex);
         add(message);
 
-        BottomNavigation bottomNavigation = BottomNavigation.build();
-        add(bottomNavigation);
+        add(breadcrumb.bottomNavigation());
     }
 
     @Override

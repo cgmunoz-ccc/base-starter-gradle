@@ -16,10 +16,10 @@ public class SummaryView extends VerticalLayout implements HasDynamicTitle {
         add(breadcrumb);
 
         Paragraph message = new Paragraph("ESTA ES LA PÁGINA FINAL DE RESUMEN. " +
-            "Aquí se verá un resumen de los datos que se han introducido en las vistas anteriores");
+            "Aquí se verá un resumen de los datos que se han introducido en las vistas anteriores" + breadcrumb.currentIndex);
         add(message);
 
-        add(breadcrumb.createBottomLayout());
+        add(breadcrumb.bottomNavigation());
     }
 
     @Override
