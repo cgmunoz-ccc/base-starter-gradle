@@ -1,12 +1,10 @@
 package com.vaadin.starter.skeleton.views.calculatorViews;
 
 import com.vaadin.flow.component.html.Paragraph;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HasDynamicTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.starter.skeleton.AppNavigation;
-import com.vaadin.starter.skeleton.components.BottomNavigation;
 import com.vaadin.starter.skeleton.components.Breadcrumb;
 import com.vaadin.starter.skeleton.components.BreadcrumbConstants;
 
