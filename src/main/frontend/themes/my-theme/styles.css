@@ -16,4 +16,18 @@ vaadin-text-field.bordered::part(input-field) {
   background-color: var(--lumo-base-color);
 }
 
+.currentBtn {
+    background-color: #f9bc0b !important;
+}
 
+.otherBtn {
+    background-color: #016af5 !important;
+}
+
+.visibleBtn {
+    visibility: initial !important;
+}
+
+.hiddenBtn {
+    visibility: hidden !important;
+}
